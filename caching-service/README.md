@@ -10,7 +10,9 @@ Install `protoc-gen-go`, a dependency of `protoc` - `go get -u github.com/golang
 
 ## Generate gRPC Code
 ```bash
-protoc -I src/ src/api.proto --go_out=plugins=grpc:pb/ # make build
+	protoc src/api.proto \
+		-I src \
+		--go_out=plugins=grpc:pb
 ```
 
 ## Run Server
