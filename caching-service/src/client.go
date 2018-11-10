@@ -5,7 +5,7 @@ import (
 	"context"
 
 	"google.golang.org/grpc"
-	"github.com/richytong/grpc-examples/caching-service/pb"
+	pbCache "github.com/richytong/grpc-examples/caching-service/gen/pb/cache"
 )
 
 func runClient() error {
@@ -13,13 +13,13 @@ func runClient() error {
 	if err != nil {
 		return err
 	}
-	cache := pb.NewCacheClient(conn)
-	setReq := pb.SetReq{Key: "gopher", Val: []byte("con")}
+	cache := pbCache.NewCacheClient(conn)
+	setReq := pbCache.SetReq{Key: "gopher", Val: []byte("con")}
 	_, err = cache.Set(context.Background(), &setReq)
 	if err != nil {
 		return err
 	}
-	getReq := pb.GetReq{Key: "gopher"}
+	getReq := pbCache.GetReq{Key: "gopher"}
 	resp, err := cache.Get(context.Background(), &getReq)
 	if err != nil {
 		return err

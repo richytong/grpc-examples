@@ -1,5 +1,5 @@
 # caching-service
-Barebones gRPC implementation
+Barebones gRPC implementation of an in-memory cache
 
 source: https://www.youtube.com/watch?v=7FZ6ZyzGex0
 
@@ -10,10 +10,13 @@ Install `protoc-gen-go`, a dependency of `protoc` - `go get -u github.com/golang
 
 ## Generate gRPC Code
 ```bash
-	protoc src/api.proto \
-		-I src \
-		--go_out=plugins=grpc:pb
+	protoc src/*.proto \
+		--proto_path src \
+		--go_out=plugins=grpc:gen
 ```
+  - `src/*.proto` - generate for all .proto files in `src`
+  - `--proto_path src` - look in src for .proto files and trim `src` from final name
+  - `--go_out=plugins=grpc:pb` - use the grpc plugin and output into the pb directory at project root
 
 ## Run Server
 ```bash

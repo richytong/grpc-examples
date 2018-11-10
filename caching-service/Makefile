@@ -1,8 +1,8 @@
 build:
 	make build_pb
 build_pb:
-	protoc src/api.proto \
-		-I src \
-		--go_out=plugins=grpc:pb
+	protoc src/*.proto \
+		--proto_path src \
+		--go_out=plugins=grpc:gen
 clean:
-	rm -rf pb/*
+	rm -rf gen/*
