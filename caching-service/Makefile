@@ -6,3 +6,7 @@ build_pb:
 		--go_out=plugins=grpc:gen
 clean:
 	rm -rf gen/*
+runServer:
+	go run src/server.go
+runClient:
+	go run src/client.go
