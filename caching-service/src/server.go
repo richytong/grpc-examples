@@ -16,6 +16,7 @@ type CacheService struct {
 }
 
 func (cs *CacheService) Get(ctx context.Context, req *pbCache.GetReq) (*pbCache.GetResp, error) {
+	defer log.Printf("CacheService Get call with req: %v\n", req)
 	val, ok := cs.Store[req.Key]
 	if !ok {
 		return nil, status.Errorf(codes.NotFound, "Key not found: %s", req.Key)
@@ -24,6 +25,7 @@ func (cs *CacheService) Get(ctx context.Context, req *pbCache.GetReq) (*pbCache.
 }
 
 func (cs *CacheService) Set(ctx context.Context, req *pbCache.SetReq) (*pbCache.SetResp, error) {
+	defer log.Printf("CacheService Set call with req: %v\n", req)
 	cs.Store[req.Key] = req.Val
 	return &pbCache.SetResp{}, nil
 }
