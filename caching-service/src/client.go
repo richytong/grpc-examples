@@ -5,7 +5,7 @@ import (
 	"context"
 
 	"google.golang.org/grpc"
-	pbCache "github.com/richytong/grpc-examples/caching-service/gen/pb/cache"
+	pbCache "github.com/richytong/grpc-examples/caching-service/proto/cache"
 )
 
 func runClient() error {

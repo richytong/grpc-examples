@@ -12,11 +12,11 @@ Install `protoc-gen-go`, a dependency of `protoc` - `go get -u github.com/golang
 ```bash
 	protoc src/*.proto \
 		--proto_path src \
-		--go_out=plugins=grpc:gen
+		--go_out=plugins=grpc:.
 ```
   - `src/*.proto` - generate for all .proto files in `src`
   - `--proto_path src` - look in src for .proto files and trim `src` from final name
-  - `--go_out=plugins=grpc:pb` - use the grpc plugin and output into the pb directory at project root
+  - `--go_out=plugins=grpc:.` - use the grpc plugin and output into the `proto` directory at project root, configured in `cache.proto`
 
 ## Run Server
 ```bash

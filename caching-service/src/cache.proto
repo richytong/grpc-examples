@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package cache;
 
-option go_package = "pb/cache";
+option go_package = "proto/cache";
 
 service Cache {
 	rpc Set(SetReq) returns (SetResp) {}

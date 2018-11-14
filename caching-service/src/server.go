@@ -8,7 +8,7 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
-	pbCache "github.com/richytong/grpc-examples/caching-service/gen/pb/cache"
+	pbCache "github.com/richytong/grpc-examples/caching-service/proto/cache"
 )
 
 type CacheService struct {

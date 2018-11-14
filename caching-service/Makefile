@@ -3,9 +3,9 @@ build:
 build_pb:
 	protoc src/*.proto \
 		--proto_path src \
-		--go_out=plugins=grpc:gen
+		--go_out=plugins=grpc:.
 clean:
-	rm -rf gen/*
+	rm -rf proto/cache/*
 runServer:
 	go run src/server.go
 runClient:
